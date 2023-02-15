@@ -7,14 +7,19 @@ const {
   getRoomDetails,
 } = require("../controllers/roomController");
 
+const {
+  isAuthenticatedUser,
+  authorizedUser,
+} = require("../middleware/authentication");
+
 const router = express.Router();
 
-router.route(`/room/new`).post(addRoom);
-router.route(`/rooms`).get(getAllRooms);
+router.route(`/room/new`).post(isAuthenticatedUser, addRoom);
+router.route(`/:id/rooms`).get(isAuthenticatedUser, getAllRooms);
 router
   .route(`/room/:id`)
-  .put(updateRoomDetails)
-  .delete(deleteRoom)
-  .get(getRoomDetails);
+  .put(isAuthenticatedUser, authorizedUser(`user`), updateRoomDetails)
+  .delete(isAuthenticatedUser, authorizedUser(`user`), deleteRoom)
+  .get(isAuthenticatedUser, authorizedUser(`user`), getRoomDetails);
 
 module.exports = router;

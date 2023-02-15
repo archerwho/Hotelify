@@ -56,9 +56,12 @@ exports.getRoomDetails = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// Get All Rooms - Admin
+// Get All Rooms of a Hotel- Admin
 exports.getAllRooms = catchAsyncError(async (req, res, next) => {
-  const rooms = await Room.find().populate(`hotel`, `name`);
+  const rooms = await Room.find({ hotel: req.params.id }).populate(
+    `hotel`,
+    `name`
+  );
   res.status(200).json({
     success: true,
     rooms,

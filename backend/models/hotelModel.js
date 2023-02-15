@@ -63,11 +63,6 @@ const hotelSchema = new mongoose.Schema({
   },
   reviews: [
     {
-      reviewedBy: {
-        type: mongoose.Schema.ObjectId,
-        ref: `User`,
-        required: [true],
-      },
       firstName: {
         type: String,
         required: true,
@@ -86,11 +81,11 @@ const hotelSchema = new mongoose.Schema({
       },
     },
   ],
-  //   createdBy: {
-  //     type: mongoose.Schema.ObjectId,
-  //     ref: `User`,
-  //     required: [true],
-  //   },
+  hotelAddedBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: `User`,
+    required: [true],
+  },
   clientSince: {
     type: Date,
     default: Date.now,
