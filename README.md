@@ -1,7 +1,6 @@
+# Hotelify
 
-# Hotel Management Application
-
-The Hotel Management Application is a web-based platform designed to streamline hotel operations and enhance the guest experience. It provides a range of features to efficiently manage hotel bookings, guest information, and overall hotel administration.
+The Hotelify is a web-based application designed to streamline hotel operations and enhance the guest experience. It provides a range of features to efficiently manage hotel bookings, guest information, and overall hotel administration.
 
 ## Features
 
